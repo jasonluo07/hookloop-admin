@@ -1,36 +1,324 @@
 {
   "users": [
     {
-      "_id": "id1",
+      "_id": "f6d3fe24-2f33-46c3-b9ab-e9c543160f79",
       "email": "user1@ex.com",
       "username": "user1",
-      "plan": 0,
-      "isArchived": false,
+      "plan": 1,
+      "isArchived": true,
       "createdAt": "2023-05-08 15:23:42"
     },
     {
-      "_id": "id2",
+      "_id": "57a2dc05-d7ad-4389-828a-588398cf5fd5",
       "email": "user2@ex.com",
       "username": "user2",
-      "plan": 0,
+      "plan": 2,
       "isArchived": false,
+      "createdAt": "2023-05-09 15:23:42"
+    },
+    {
+      "_id": "193c1061-36b6-4d15-9a11-33de324a275d",
+      "email": "user3@ex.com",
+      "username": "user3",
+      "plan": 0,
+      "isArchived": true,
       "createdAt": "2023-05-10 15:23:42"
     },
     {
-      "_id": "id3",
-      "email": "user3@ex.com",
-      "username": "user3",
+      "_id": "2a15fdb5-d78a-41b8-a83f-cfa3c82bd479",
+      "email": "user4@ex.com",
+      "username": "user4",
       "plan": 1,
-      "isArchived": true,
+      "isArchived": false,
       "createdAt": "2023-05-11 15:23:42"
     },
     {
-      "_id": "id4",
-      "email": "user4@ex.com",
-      "username": "user4",
+      "_id": "eec35495-9566-4d75-a484-12c66f743fb9",
+      "email": "user5@ex.com",
+      "username": "user5",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-05-12 15:23:42"
+    },
+    {
+      "_id": "917cea59-219c-4245-9452-1c722785797d",
+      "email": "user6@ex.com",
+      "username": "user6",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-13 15:23:42"
+    },
+    {
+      "_id": "b43f8225-dd95-4091-9069-66beb3ae9195",
+      "email": "user7@ex.com",
+      "username": "user7",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-05-14 15:23:42"
+    },
+    {
+      "_id": "a1a4aa83-7394-4f84-8250-14b0d482e6d9",
+      "email": "user8@ex.com",
+      "username": "user8",
       "plan": 2,
       "isArchived": false,
-      "createdAt": "2023-05-12 15:23:42"
+      "createdAt": "2023-05-15 15:23:42"
+    },
+    {
+      "_id": "5c9b627c-5ab8-4a77-98bc-26fc236db8eb",
+      "email": "user9@ex.com",
+      "username": "user9",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-05-16 15:23:42"
+    },
+    {
+      "_id": "7a36cf38-94b0-4f51-92ae-5a5eeccb42d9",
+      "email": "user10@ex.com",
+      "username": "user10",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-05-17 15:23:42"
+    },
+    {
+      "_id": "8f1344cb-8aaf-447a-a30e-b0d6b7d398f9",
+      "email": "user11@ex.com",
+      "username": "user11",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-05-18 15:23:42"
+    },
+    {
+      "_id": "935a0c05-1db1-47be-ad24-02f82bc91a12",
+      "email": "user12@ex.com",
+      "username": "user12",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-19 15:23:42"
+    },
+    {
+      "_id": "95e920d3-c30b-4411-ad68-1e9b27b0b1b7",
+      "email": "user13@ex.com",
+      "username": "user13",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-05-20 15:23:42"
+    },
+    {
+      "_id": "c71be2de-127f-4d89-82fa-14c153ba0a6c",
+      "email": "user14@ex.com",
+      "username": "user14",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-05-21 15:23:42"
+    },
+    {
+      "_id": "8ab3fb80-f11e-4048-83e9-7a08cd1709aa",
+      "email": "user15@ex.com",
+      "username": "user15",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-05-22 15:23:42"
+    },
+    {
+      "_id": "14b6b421-6c0a-4268-bfc6-5ab96c7d407c",
+      "email": "user16@ex.com",
+      "username": "user16",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-05-23 15:23:42"
+    },
+    {
+      "_id": "e73748d0-4203-4682-80c7-9412fe6aba67",
+      "email": "user17@ex.com",
+      "username": "user17",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-05-24 15:23:42"
+    },
+    {
+      "_id": "ad2b6468-31b7-40d6-befd-6a58901aec3a",
+      "email": "user18@ex.com",
+      "username": "user18",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-25 15:23:42"
+    },
+    {
+      "_id": "27b10a28-a023-4607-a7bd-a685f8417ac0",
+      "email": "user19@ex.com",
+      "username": "user19",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-05-26 15:23:42"
+    },
+    {
+      "_id": "4f6d612e-028c-4079-9e6e-7fafae11fec1",
+      "email": "user20@ex.com",
+      "username": "user20",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-05-27 15:23:42"
+    },
+    {
+      "_id": "7f07f996-5bc4-4761-bcbf-82dde7606d4f",
+      "email": "user21@ex.com",
+      "username": "user21",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-05-28 15:23:42"
+    },
+    {
+      "_id": "93295dc7-092e-4f04-ac4f-462972101fba",
+      "email": "user22@ex.com",
+      "username": "user22",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-05-29 15:23:42"
+    },
+    {
+      "_id": "410020d1-a9cd-4f8a-96d8-4b3cdbb54f4c",
+      "email": "user23@ex.com",
+      "username": "user23",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-05-30 15:23:42"
+    },
+    {
+      "_id": "3b1c98c2-230b-4e7a-a8a7-d8bfe4e21487",
+      "email": "user24@ex.com",
+      "username": "user24",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-31 15:23:42"
+    },
+    {
+      "_id": "11899889-28a7-4817-9bf1-c28d94b93e1d",
+      "email": "user25@ex.com",
+      "username": "user25",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-06-01 15:23:42"
+    },
+    {
+      "_id": "212edb59-bf4e-48e3-bb11-6274f9cf7f8f",
+      "email": "user26@ex.com",
+      "username": "user26",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-06-02 15:23:42"
+    },
+    {
+      "_id": "f3dfced7-7cfc-47a7-b865-00cb4f8aa9d6",
+      "email": "user27@ex.com",
+      "username": "user27",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-06-03 15:23:42"
+    },
+    {
+      "_id": "4b05c2b3-7b16-4622-a94b-cb79438e2969",
+      "email": "user28@ex.com",
+      "username": "user28",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-06-04 15:23:42"
+    },
+    {
+      "_id": "11023311-fe9a-4879-b0fd-a658dc6874a4",
+      "email": "user29@ex.com",
+      "username": "user29",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-06-05 15:23:42"
+    },
+    {
+      "_id": "6235948e-fd1e-42f4-bee3-af0c6b983a6d",
+      "email": "user30@ex.com",
+      "username": "user30",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-06-06 15:23:42"
+    },
+    {
+      "_id": "49254434-33ba-4763-9965-81dada52c270",
+      "email": "user31@ex.com",
+      "username": "user31",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-06-07 15:23:42"
+    },
+    {
+      "_id": "d93f24a3-2066-4280-af64-5c656a4832a9",
+      "email": "user32@ex.com",
+      "username": "user32",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-06-08 15:23:42"
+    },
+    {
+      "_id": "715b6531-5917-4429-bcbc-75707db95136",
+      "email": "user33@ex.com",
+      "username": "user33",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-06-09 15:23:42"
+    },
+    {
+      "_id": "ecd633ea-2bbc-49ef-99da-c48487a5aa12",
+      "email": "user34@ex.com",
+      "username": "user34",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-06-10 15:23:42"
+    },
+    {
+      "_id": "15b479c4-04d1-4d1f-8802-b2cead8ac8b6",
+      "email": "user35@ex.com",
+      "username": "user35",
+      "plan": 2,
+      "isArchived": true,
+      "createdAt": "2023-06-11 15:23:42"
+    },
+    {
+      "_id": "872efaa9-c5b1-4fbf-9d4a-940e8f24e75a",
+      "email": "user36@ex.com",
+      "username": "user36",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-06-12 15:23:42"
+    },
+    {
+      "_id": "e14cc38f-7290-4fd8-8027-60340247e0bd",
+      "email": "user37@ex.com",
+      "username": "user37",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-06-13 15:23:42"
+    },
+    {
+      "_id": "10c78724-8050-47a6-bf73-d1ba9decd52d",
+      "email": "user38@ex.com",
+      "username": "user38",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-06-14 15:23:42"
+    },
+    {
+      "_id": "64bb1b84-faed-4313-9991-ecc1dda5aeb8",
+      "email": "user39@ex.com",
+      "username": "user39",
+      "plan": 0,
+      "isArchived": true,
+      "createdAt": "2023-06-15 15:23:42"
+    },
+    {
+      "_id": "3b8c652b-3226-4d81-8fcc-23678caf1dd5",
+      "email": "user40@ex.com",
+      "username": "user40",
+      "plan": 1,
+      "isArchived": false,
+      "createdAt": "2023-06-16 15:23:42"
     }
   ]
 }
