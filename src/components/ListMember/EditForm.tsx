@@ -45,12 +45,12 @@ function EditForm(props: EditFormProps<TFilterData, TRecord>) {
         <Form.Item name="email" label="Email">
           <Input />
         </Form.Item>
-        <Form.Item name="isArchived" label="狀態">
+        <Form.Item name="isArchived" label="IsArchived">
           <Select
-            placeholder="請選擇狀態"
+            placeholder="Please select isArchived"
             options={[
-              { value: 0, label: 'Normal' },
-              { value: 1, label: 'Archived' },
+              { value: 0, label: 'true' },
+              { value: 1, label: 'false' },
             ]}
             allowClear
           />

@@ -1,7 +1,7 @@
 import type { FormInstance, TablePaginationConfig } from 'antd';
 
 export interface IUser {
-  id: string;
+  _id: string;
   email: string;
   username: string;
   password: string;

@@ -45,11 +45,29 @@ function ListMember() {
     {
       title: 'Plan',
       dataIndex: 'plan',
+      render: (plan: number) => {
+        switch (plan) {
+          case 0:
+            return <span className="text-yellow-700">Plan A</span>;
+          case 1:
+            return <span className="text-red-700">Plan B</span>;
+          case 2:
+            return <span className="text-green-700">Plan C</span>;
+          default:
+            return <span>Unknown</span>;
+        }
+      },
     },
     {
       title: 'IsArchived',
       dataIndex: 'isArchived',
-      // render: (isArchived: number) => <span className={`${isArchived === 0 && 'text-red-500'}`}>{Locale.status(isArchived)}</span>,
+      render: (isArchived: boolean) => {
+        if (isArchived) {
+          return <span className="text-red-500">true</span>;
+        } else {
+          return <span className="text-green-500">false</span>;
+        }
+      },
     },
     {
       title: 'Actions',
@@ -76,7 +94,7 @@ function ListMember() {
       // TODO axios
       console.log('handleSearch');
       const result = await fetchData(filterData);
-      console.log('result', result)
+      console.log('result', result);
 
       // setTableParams(base =>
       //   produce(base, draft => {
@@ -84,7 +102,7 @@ function ListMember() {
       //     draft.pagination.current = isNewSearch ? 1 : tableParams.pagination.current;
       //   })
       // );
-      // setDataSource(result.Data);
+      setDataSource(result.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -94,9 +112,16 @@ function ListMember() {
 
   const fetchData = async (filterData: TFilterData) => {
     // TODO: axios
-    console.log('fetchData')
-    const result = await axios.get('http://localhost:8080/api/v1/admin/users');
-    console.log('result', result)
+    console.log('fetchData');
+    const result = await axios.get('http://localhost:3000/users');
+    console.log('result', result);
+    //   {
+    //     "id": "user1",
+    //     "email": "user1@ex.com",
+    //     "username": "user1",
+    //     "isArchived": false,
+    //     "createdAt": "2023-05-08 15:23:42"
+    // },
 
     // console.log('result', result);
 
@@ -112,6 +137,7 @@ function ListMember() {
     // };
 
     // if (result.State === 'Success') return result;
+    return result;
   };
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
@@ -132,7 +158,7 @@ function ListMember() {
       <Table
         dataSource={dataSource}
         columns={columns}
-        rowKey={(record: TRecord) => record.id}
+        rowKey={(record: TRecord) => record._id}
         pagination={tableParams.pagination}
         onChange={handleTableChange}
         loading={isSearching}

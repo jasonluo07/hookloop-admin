@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "_id": "id1",
+      "email": "user1@ex.com",
+      "username": "user1",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-08 15:23:42"
+    },
+    {
+      "_id": "id2",
+      "email": "user2@ex.com",
+      "username": "user2",
+      "plan": 0,
+      "isArchived": false,
+      "createdAt": "2023-05-10 15:23:42"
+    },
+    {
+      "_id": "id3",
+      "email": "user3@ex.com",
+      "username": "user3",
+      "plan": 1,
+      "isArchived": true,
+      "createdAt": "2023-05-11 15:23:42"
+    },
+    {
+      "_id": "id4",
+      "email": "user4@ex.com",
+      "username": "user4",
+      "plan": 2,
+      "isArchived": false,
+      "createdAt": "2023-05-12 15:23:42"
+    }
+  ]
+}
