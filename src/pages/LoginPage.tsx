@@ -12,7 +12,7 @@ function LoginPage() {
   const { authDispatch } = useAuthContext();
   const { pathname } = location;
 
-  const handleLogin = async (values: { Account: string; Password: string }) => {
+  const handleLogin = async (values: { username: string; Password: string }) => {
     setIsLoading(true);
     try {
       // TODO: axios
@@ -47,22 +47,10 @@ function LoginPage() {
       <h1 className="text-2xl">HookLoop</h1>
       <Form name="login" layout="horizontal" onFinish={handleLogin} className="w-[380px] bg-white px-10 py-6 shadow-lg">
         <h2 className="mb-5 text-center text-base">Welcome to log in</h2>
-        <Form.Item
-          name="Account"
-          label="Account"
-          rules={[
-            { required: true, message: '請輸入你的帳號' },
-          ]}
-        >
-          <Input prefix={<UserOutlined />} placeholder="Account" />
+        <Form.Item name="username" label="username" rules={[{ required: true, message: '請輸入你的帳號' }]}>
+          <Input prefix={<UserOutlined />} placeholder="username" />
         </Form.Item>
-        <Form.Item
-          name="Password"
-          label="Password"
-          rules={[
-            { required: true, message: '請輸入你的密碼' },
-          ]}
-        >
+        <Form.Item name="Password" label="Password" rules={[{ required: true, message: '請輸入你的密碼' }]}>
           <Input.Password prefix={<LockOutlined />} placeholder="Password" />
         </Form.Item>
         <Form.Item>

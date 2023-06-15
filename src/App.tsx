@@ -70,7 +70,7 @@ const authReducer = (state: TAuthState, action: TAuthAction): TAuthState => {
       return { ...state, isLoggedIn: true, token };
     }
     case 'LOG_OUT':
-      return { token: null, isLoggedIn: false, role: null };
+      return { token: null, isLoggedIn: false };
     default:
       return state;
   }
@@ -80,7 +80,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState: TAuthState = {
     token: sessionStorage.getItem('Authorization') ?? null,
     isLoggedIn: false,
-    role: null,
   };
 
   const [authState, authDispatch] = useReducer(authReducer, initialState);

@@ -28,7 +28,7 @@ function Header({ isCollapsed, setIsCollapsed }: HeaderProps) {
     authDispatch({
       type: 'LOG_OUT',
     });
-    message.success('登出成功');
+    message.success('Log out successfully');
     navigate('/login');
   };
 

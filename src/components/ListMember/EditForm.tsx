@@ -1,18 +1,17 @@
 import { Form, Input, message, Modal, Select, Typography } from 'antd';
 
 import type { EditFormProps } from '@/types';
-import type { TFilterData, TEditData, TRow } from './types';
+import type { TFilterData, TEditData, TRecord } from './types';
 
 const { Title } = Typography;
 
-function EditForm(props: EditFormProps<TFilterData, TRow>) {
-  const { isEditFormOpen, setIsEditFormOpen, filterFormInstance, onSearch, row } = props;
+function EditForm(props: EditFormProps<TFilterData, TRecord>) {
+  const { isEditFormOpen, setIsEditFormOpen, filterFormInstance, onSearch, record } = props;
   const [form] = Form.useForm();
-  const initEditData = {
-    Account: row.Account,
-    Nickname: row.Nickname,
-    Email: row.Email,
-    Status: row.Status,
+  const initialEditData = {
+    username: record.username,
+    email: record.email,
+    isArchived: record.isArchived,
   };
 
   const handleEdit = async (values: TEditData) => {
@@ -23,11 +22,11 @@ function EditForm(props: EditFormProps<TFilterData, TRow>) {
 
   return (
     <Modal
-      title={<Title level={4}>編輯</Title>}
+      title={<Title level={4}>Edit</Title>}
       open={isEditFormOpen}
-      okText="確認"
+      okText="Submit"
       onOk={form.submit}
-      cancelText="取消"
+      cancelText="Cancel"
       onCancel={() => setIsEditFormOpen(false)}
       className="w-[600px]"
     >
@@ -37,24 +36,21 @@ function EditForm(props: EditFormProps<TFilterData, TRow>) {
         layout="horizontal"
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 18 }}
-        initialValues={initEditData}
+        initialValues={initialEditData}
         onFinish={handleEdit}
       >
-        <Form.Item name="Account" label="帳號">
+        <Form.Item name="username" label="Username">
           <Input disabled />
         </Form.Item>
-        <Form.Item name="Nickname" label="名稱">
+        <Form.Item name="email" label="Email">
           <Input />
         </Form.Item>
-        <Form.Item name="Email" label="Email">
-          <Input />
-        </Form.Item>
-        <Form.Item name="Status" label="狀態">
+        <Form.Item name="isArchived" label="狀態">
           <Select
             placeholder="請選擇狀態"
             options={[
-              { value: 0, label: '凍結' },
-              { value: 1, label: '正常' },
+              { value: 0, label: 'Normal' },
+              { value: 1, label: 'Archived' },
             ]}
             allowClear
           />

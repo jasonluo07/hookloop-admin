@@ -30,7 +30,6 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
         <Col span={6}>
           <Form.Item name="Play" label="Plan Type">
             <Select
-              placeholder="Please select plan type"
               options={[
                 { value: 0, label: 'Plan A' },
                 { value: 1, label: 'Plan B' },
@@ -40,22 +39,16 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
           </Form.Item>
         </Col>
         <Col span={6}>
-          <Form.Item name="Nickname" label="Username">
-            <Input placeholder="Please enter username" allowClear />
+          <Form.Item name="username" label="email">
+            <Input allowClear />
           </Form.Item>
         </Col>
         <Col span={6}>
-          <Form.Item name="Account" label="Email">
-            <Input placeholder="Please enter email" allowClear />
-          </Form.Item>
-        </Col>
-        <Col span={6}>
-          <Form.Item name="Status" label="Status">
+          <Form.Item name="isArchived" label="isArchived">
             <Select
-              placeholder="Please select status"
               options={[
-                { value: 0, label: 'Archived' },
-                { value: 1, label: 'Normal' },
+                { value: 0, label: 'Normal' },
+                { value: 1, label: 'Archived' },
               ]}
               allowClear
             />

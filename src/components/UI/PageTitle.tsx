@@ -4,7 +4,8 @@ type PageTitleProps = {
   name: string;
 };
 
-function PageTitle({ name }: PageTitleProps) {
+function PageTitle(props: PageTitleProps) {
+  const { name } = props;
   return <Typography.Title level={3}>{name}</Typography.Title>;
 }
 
