@@ -49,8 +49,8 @@ function EditForm(props: EditFormProps<TFilterData, TRecord>) {
           <Select
             placeholder="Please select isArchived"
             options={[
-              { value: 0, label: 'true' },
-              { value: 1, label: 'false' },
+              { value: true, label: 'true' },
+              { value: false, label: 'false' },
             ]}
             allowClear
           />
