@@ -41,20 +41,16 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
 const router = createBrowserRouter([
   {
-    path: '/dashboard',
+    path: '/dashboard/user/list',
     element: (
       // <ProtectedRoute>
       <DashboardPage />
       // </ProtectedRoute>
     ),
-    children: [{ path: 'member/list', element: <ListMember /> }],
+    children: [{ path: '', element: <ListMember /> }],
   },
   {
-    path: 'login',
-    element: <LoginPage />,
-  },
-  {
-    path: 'ag/login',
+    path: '/admin/login',
     element: <LoginPage />,
   },
   {

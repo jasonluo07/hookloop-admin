@@ -15,11 +15,11 @@ function Sider({ isCollapsed }: SiderProps) {
       children: [
         {
           label: (
-            <Link to={'member/list'} className="text-inherit">
-              Users
+            <Link to={'user/list'} className="text-inherit">
+              User List
             </Link>
           ),
-          key: 'member/list',
+          key: 'user/list',
         },
       ],
     },
@@ -37,7 +37,7 @@ function Sider({ isCollapsed }: SiderProps) {
     >
       <div className="flex h-16 items-center gap-4 pl-6 ">
         <img src="/src/assets/logo.svg" className="h-8 w-8" />
-        <a href="/dashboard" className="text-white">
+        <a href="/dashboard/user/list" className="text-white">
           HookLoop
         </a>
       </div>

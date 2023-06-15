@@ -8,6 +8,7 @@ import EditForm from './EditForm';
 import FilterForm from './FilterForm';
 
 import { PageTitle } from '@/components/UI';
+import axios from 'axios';
 
 function ListMember() {
   const [filterFormInstance] = Form.useForm();
@@ -19,30 +20,34 @@ function ListMember() {
       total: 0,
     },
   });
-  const [rows, setRows] = useState<TRecord[]>([]);
+  const [dataSource, setDataSource] = useState<TRecord[]>([]);
   const [record, setRecord] = useState<TRecord>({} as TRecord);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
 
   const columns: IColumn<TRecord>[] = [
     {
+      title: 'ID',
+      dataIndex: '_id',
+    },
+    {
       title: 'Username',
       dataIndex: 'username',
     },
     {
-      title: 'email',
+      title: 'Email',
       dataIndex: 'email',
     },
     {
       title: 'Register Date',
-      dataIndex: 'RegisterDate',
-      render: (RegisterDate: string) => <span>{dayjs(RegisterDate).format('YYYY-MM-DD HH:mm')}</span>,
+      dataIndex: 'createdAt',
+      render: (createdAt: string) => <span>{dayjs(createdAt).format('YYYY-MM-DD HH:mm')}</span>,
     },
     {
       title: 'Plan',
       dataIndex: 'plan',
     },
     {
-      title: 'isArchived',
+      title: 'IsArchived',
       dataIndex: 'isArchived',
       // render: (isArchived: number) => <span className={`${isArchived === 0 && 'text-red-500'}`}>{Locale.status(isArchived)}</span>,
     },
@@ -70,7 +75,8 @@ function ListMember() {
     try {
       // TODO axios
       console.log('handleSearch');
-      // const result = await fetchData(filterData);
+      const result = await fetchData(filterData);
+      console.log('result', result)
 
       // setTableParams(base =>
       //   produce(base, draft => {
@@ -78,7 +84,7 @@ function ListMember() {
       //     draft.pagination.current = isNewSearch ? 1 : tableParams.pagination.current;
       //   })
       // );
-      // setRows(result.Data);
+      // setDataSource(result.Data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -88,7 +94,10 @@ function ListMember() {
 
   const fetchData = async (filterData: TFilterData) => {
     // TODO: axios
-    // const result = axios.get('http://localhost:3000/users');
+    console.log('fetchData')
+    const result = await axios.get('http://localhost:8080/api/v1/admin/users');
+    console.log('result', result)
+
     // console.log('result', result);
 
     // const result = (await POST(...., {
@@ -103,7 +112,6 @@ function ListMember() {
     // };
 
     // if (result.State === 'Success') return result;
-    throw new Error('fetchData error');
   };
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
@@ -119,10 +127,10 @@ function ListMember() {
 
   return (
     <>
-      <PageTitle name="Users" />
+      <PageTitle name="User List" />
       <FilterForm filterFormInstance={filterFormInstance} onSearch={handleSearch} />
       <Table
-        dataSource={rows}
+        dataSource={dataSource}
         columns={columns}
         rowKey={(record: TRecord) => record.id}
         pagination={tableParams.pagination}

@@ -29,7 +29,7 @@ function Header({ isCollapsed, setIsCollapsed }: HeaderProps) {
       type: 'LOG_OUT',
     });
     message.success('Log out successfully');
-    navigate('/login');
+    navigate('/admin/login');
   };
 
   const content = (
