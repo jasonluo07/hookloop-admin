@@ -8,7 +8,7 @@ import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
-import { ListMember } from '@/components';
+import { ListMember } from '@/features';
 
 type ProtectedRouteProps = {
   children: React.ReactNode;

@@ -28,7 +28,8 @@ export interface IOption<T = number> {
 
 export type FilterFormProps<T> = {
   filterFormInstance: FormInstance;
-  onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
+  // onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
+  onSearch: () => Promise<void>;
   onChange?: (filterData: T) => void;
   filterOptions?: any;
 };
