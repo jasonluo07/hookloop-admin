@@ -12,7 +12,7 @@ function Header() {
       type: 'LOG_OUT',
     });
     message.success('Log out successfully');
-    navigate('/admin/login');
+    navigate('/login');
   };
 
   return (

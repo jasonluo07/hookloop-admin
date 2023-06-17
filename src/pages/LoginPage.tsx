@@ -1,9 +1,10 @@
+import Cookies from 'js-cookie';
 import { useAuthContext } from '@/hooks';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Layout, message } from 'antd';
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '@/service';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -13,26 +14,26 @@ function LoginPage() {
   const handleLogin = async (values: { username: string; password: string }) => {
     setIsLoading(true);
     try {
-      const res = (await axios.post('http://localhost:8080/api/v1/admin/login', values)) as {
-        data: { State: string; Token: string };
-      };
-      const { State, Token } = res.data;
+      const { data: resData } = await login(values);
+      const { data, message: resMessage, status } = resData;
 
-      if (State === 'Success') {
-        sessionStorage.setItem('Authorization', Token);
+      const { token, error: resError } = data;
+      console.log('resData', resData);
+
+      if (status === 'success') {
+        Cookies.set('hookloop-admin-token', token);
         authDispatch({
           type: 'LOG_IN',
-          payload: {
-            token: Token,
-          },
+          payload: { token },
         });
-        message.success('Log in successful!');
-        navigate('/dashboard/user/list');
+        message.success(resMessage || 'Log in successful!');
+        navigate('/');
       } else {
-        message.error('Log in successful!')
+        message.error(resError || resMessage);
       }
-    } catch (errInfo) {
-      console.error(errInfo);
+    } catch (error) {
+      console.log('error', error);
+      message.error((error as Error)?.message || 'Something went wrong. Please try again later.');
     } finally {
       setIsLoading(false);
     }
