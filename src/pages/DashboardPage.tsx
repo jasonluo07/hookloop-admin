@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Layout } from 'antd';
-import { Footer, Header, Sider, Content } from '@/layouts';
+import { Footer, Header, Sider, Content } from '@/components/layout';
 
 function DashboardPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -9,7 +9,7 @@ function DashboardPage() {
     <Layout className="min-h-screen">
       <Sider isCollapsed={isCollapsed} />
       <Layout>
-        <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        <Header />
         <Content />
         <Footer />
       </Layout>

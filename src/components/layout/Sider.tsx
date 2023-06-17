@@ -42,12 +42,7 @@ function Sider({ isCollapsed }: SiderProps) {
         </a>
       </div>
       <div className="flex h-16 items-center gap-4 pl-6">
-        <div>
-          <img src="/src/assets/user.jpg" className="h-8 w-8 rounded-full" />
-        </div>
-        <div className="flex flex-col gap-1">
-          <div>Alice</div>
-        </div>
+        <div className="flex flex-col gap-1">{/* <div>Alice</div> */}</div>
       </div>
       <Menu theme="dark" mode="inline" defaultOpenKeys={['sub1']} items={menuItems} />
     </Layout.Sider>

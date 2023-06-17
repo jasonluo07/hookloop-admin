@@ -1,23 +1,16 @@
-import { Form, Input, message, Modal, Select, Typography } from 'antd';
-
+import { Form, Input, Modal, Select, Typography } from 'antd';
 import type { EditFormProps } from '@/types';
-import type { TFilterData, TEditData, TRecord } from './types';
+import type { TFilterData, TRecord } from './types';
+import { IS_ARCHIVED_TYPE } from './constants';
 
 const { Title } = Typography;
 
 function EditForm(props: EditFormProps<TFilterData, TRecord>) {
-  const { isEditFormOpen, setIsEditFormOpen, filterFormInstance, onSearch, record } = props;
-  const [form] = Form.useForm();
+  const { isEditFormOpen, setIsEditFormOpen, editForm, onUpdate, record } = props;
   const initialEditData = {
     username: record.username,
     email: record.email,
     isArchived: record.isArchived,
-  };
-
-  const handleEdit = async (values: TEditData) => {
-    console.log('values', values);
-    // TODO: axios
-    message.error('尚未完成');
   };
 
   return (
@@ -25,35 +18,28 @@ function EditForm(props: EditFormProps<TFilterData, TRecord>) {
       title={<Title level={4}>Edit</Title>}
       open={isEditFormOpen}
       okText="Submit"
-      onOk={form.submit}
+      onOk={onUpdate}
       cancelText="Cancel"
       onCancel={() => setIsEditFormOpen(false)}
       className="w-[600px]"
     >
       <Form
         name="editMember"
-        form={form}
+        form={editForm}
         layout="horizontal"
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 18 }}
         initialValues={initialEditData}
-        onFinish={handleEdit}
+        onFinish={onUpdate}
       >
         <Form.Item name="username" label="Username">
-          <Input disabled />
-        </Form.Item>
-        <Form.Item name="email" label="Email">
           <Input />
         </Form.Item>
+        <Form.Item name="email" label="Email">
+          <Input disabled />
+        </Form.Item>
         <Form.Item name="isArchived" label="IsArchived">
-          <Select
-            placeholder="Please select isArchived"
-            options={[
-              { value: true, label: 'true' },
-              { value: false, label: 'false' },
-            ]}
-            allowClear
-          />
+          <Select placeholder="Please select isArchived" options={IS_ARCHIVED_TYPE} allowClear />
         </Form.Item>
       </Form>
     </Modal>

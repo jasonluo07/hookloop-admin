@@ -9,7 +9,7 @@ import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
-import { ListMember } from '@/components';
+import { ListMember } from '@/features';
 
 // type ProtectedRouteProps = {
 //   children: React.ReactNode;
@@ -42,7 +42,8 @@ import { ListMember } from '@/components';
 
 const router = createBrowserRouter([
   {
-    path: '/dashboard/user/list',
+    // path: '/dashboard/user/list',
+    path: '*',
     element: (
       // <ProtectedRoute>
       <DashboardPage />
@@ -51,13 +52,13 @@ const router = createBrowserRouter([
     children: [{ path: '', element: <ListMember /> }],
   },
   {
-    path: '/admin/login',
+    path: '/login',
     element: <LoginPage />,
   },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
+  // {
+  //   path: '*',
+  //   element: <NotFoundPage />,
+  // },
 ]);
 
 const authReducer = (state: TAuthState, action: TAuthAction): TAuthState => {
