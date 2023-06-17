@@ -1,43 +1,44 @@
 import { useEffect, useReducer } from 'react';
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import axios from 'axios';
-import { message } from 'antd';
+// import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+// import axios from 'axios';
+// import { message } from 'antd';
 
-import { useAuthContext } from '@/hooks';
+// import { useAuthContext } from '@/hooks';
 import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
 import { ListMember } from '@/components';
 
-type ProtectedRouteProps = {
-  children: React.ReactNode;
-};
+// type ProtectedRouteProps = {
+//   children: React.ReactNode;
+// };
 
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const { authDispatch } = useAuthContext();
-  const token = sessionStorage.getItem('Authorization');
+// const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+//   const { authDispatch } = useAuthContext();
+//   const token = sessionStorage.getItem('Authorization');
 
-  useEffect(() => {
-    (async () => {
-      // TODO: axios
-      const res = await axios.get('/login', {
-        headers: {
-          Authorization: token,
-        },
-      });
-      const { State } = res.data;
+//   useEffect(() => {
+//     (async () => {
+//       // TODO: axios
+//       const res = await axios.get('/login', {
+//         headers: {
+//           Authorization: token,
+//         },
+//       });
+//       const { State } = res.data;
 
-      if (State === 'Success') {
-        message.success('驗證通過');
-      } else {
-        message.error('驗證沒有通過');
-      }
-    })();
-  }, [authDispatch, token]);
+//       if (State === 'Success') {
+//         message.success('驗證通過');
+//       } else {
+//         message.error('驗證沒有通過');
+//       }
+//     })();
+//   }, [authDispatch, token]);
 
-  return token ? <>{children}</> : <Navigate to="/login" replace />;
-};
+//   return token ? <>{children}</> : <Navigate to="/login" replace />;
+// };
 
 const router = createBrowserRouter([
   {
