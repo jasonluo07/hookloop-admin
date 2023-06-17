@@ -1,29 +1,25 @@
 import { useEffect, useReducer } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import axios from 'axios';
+import Cookies from 'js-cookie';
 import { message } from 'antd';
-
-import { useAuthContext } from '@/hooks';
 import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
-
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
 import { ListMember } from '@/features';
-import { login, verifyUserToken } from '@/service';
+import { verifyUserToken } from '@/service';
 
 type ProtectedRouteProps = {
   children: React.ReactNode;
 };
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const { authDispatch } = useAuthContext();
-  const token = sessionStorage.getItem('Authorization');
+  // const { authDispatch } = useAuthContext();
+  const token = Cookies.get('hookloop-admin-token');
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await verifyUserToken();
-
         console.log('data', data);
       } catch (error) {
         message.error((error as Error)?.message || 'Something went wrong. Please try again later.');
@@ -37,7 +33,6 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    // path: '*',
     element: (
       <ProtectedRoute>
         <DashboardPage />
