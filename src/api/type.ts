@@ -3,5 +3,5 @@ export interface IUsersDataByConditionArgs {
   startDate?: string;
   endDate?: string;
   isArchived?: boolean;
-  planType?: number;
+  username?: string;
 }
