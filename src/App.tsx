@@ -41,7 +41,8 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
 const router = createBrowserRouter([
   {
-    path: '/dashboard/user/list',
+    // path: '/dashboard/user/list',
+    path: '*',
     element: (
       // <ProtectedRoute>
       <DashboardPage />
@@ -50,13 +51,13 @@ const router = createBrowserRouter([
     children: [{ path: '', element: <ListMember /> }],
   },
   {
-    path: '/admin/login',
+    path: '/login',
     element: <LoginPage />,
   },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
+  // {
+  //   path: '*',
+  //   element: <NotFoundPage />,
+  // },
 ]);
 
 const authReducer = (state: TAuthState, action: TAuthAction): TAuthState => {

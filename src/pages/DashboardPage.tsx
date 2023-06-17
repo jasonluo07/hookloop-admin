@@ -9,7 +9,7 @@ function DashboardPage() {
     <Layout className="min-h-screen">
       <Sider isCollapsed={isCollapsed} />
       <Layout>
-        <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        <Header />
         <Content />
         <Footer />
       </Layout>

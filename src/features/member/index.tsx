@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { memo, useState } from 'react';
 import { Button, Form, Space, Table, TablePaginationConfig, message } from 'antd';
-import { getUsersByConditions } from '@/api';
+import { getUsersByConditions, updateUserById } from '@/api';
 import { PageTitle } from '@/components/UI';
 import type { IColumn, TTableParams } from '@/types';
 import type { TRecord } from './types';
@@ -9,8 +9,9 @@ import EditForm from './EditForm';
 import FilterForm from './FilterForm';
 
 function ListMember() {
-  const [filterFormInstance] = Form.useForm();
-  const [isSearching, setIsSearching] = useState(false);
+  const [filterForm] = Form.useForm();
+  const [editForm] = Form.useForm();
+  const [isLoading, setIsLoading] = useState(false);
   const [tableParams, setTableParams] = useState<TTableParams>({
     pagination: {
       current: 1,
@@ -87,14 +88,15 @@ function ListMember() {
   ];
 
   const handleSearch = async () => {
-    setIsSearching(true);
-    const { planType, email, isArchived, registerDateRange } = filterFormInstance.getFieldsValue();
+    setIsLoading(true);
+    const { username, email, isArchived: formIsArchived, registerDateRange } = filterForm.getFieldsValue();
+    const isArchived = formIsArchived === undefined ? undefined : formIsArchived === 1 ? true : false;
 
     try {
       const { data: usersData } = await getUsersByConditions({
-        planType,
+        username: username === '' ? undefined : username,
         email: email === '' ? undefined : email,
-        isArchived: isArchived === 1,
+        isArchived,
         startDate: registerDateRange?.[0],
         endDate: registerDateRange?.[1],
       });
@@ -104,7 +106,27 @@ function ListMember() {
     } catch (error) {
       message.error((error as Error)?.message || 'Something went wrong. Please try again later.');
     } finally {
-      setIsSearching(false);
+      setIsLoading(false);
+    }
+  };
+
+  const handleUpdate = async () => {
+    setIsLoading(true);
+    const { username, isArchived: formIsArchived } = editForm.getFieldsValue();
+    const isArchived = formIsArchived === undefined ? undefined : formIsArchived === 1 ? true : false;
+    const id = record._id;
+
+    try {
+      const { data: resData } = await updateUserById(id, { username, isArchived });
+      const { message: resMsg } = resData;
+      setIsEditFormOpen(false);
+
+      message.success(resMsg);
+      handleSearch();
+    } catch (error) {
+      message.error((error as Error)?.message || 'Something went wrong. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -118,22 +140,22 @@ function ListMember() {
   return (
     <>
       <PageTitle name="User List" />
-      <FilterForm filterFormInstance={filterFormInstance} onSearch={handleSearch} />
+      <FilterForm filterForm={filterForm} onSearch={handleSearch} />
       <Table
         dataSource={dataSource}
         columns={columns}
         rowKey={(record: TRecord) => record._id}
         pagination={tableParams.pagination}
         onChange={handleTableChange}
-        loading={isSearching}
+        loading={isLoading}
         className="shadow"
       />
       {isEditFormOpen && (
         <EditForm
           isEditFormOpen={isEditFormOpen}
           setIsEditFormOpen={setIsEditFormOpen}
-          filterFormInstance={filterFormInstance}
-          onSearch={handleSearch}
+          editForm={editForm}
+          onUpdate={handleUpdate}
           record={record}
         />
       )}

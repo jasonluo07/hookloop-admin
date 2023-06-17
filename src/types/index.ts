@@ -27,7 +27,7 @@ export interface IOption<T = number> {
 }
 
 export type FilterFormProps<T> = {
-  filterFormInstance: FormInstance;
+  filterForm: FormInstance;
   // onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
   onSearch: () => Promise<void>;
   onChange?: (filterData: T) => void;
@@ -35,10 +35,11 @@ export type FilterFormProps<T> = {
 };
 
 export type EditFormProps<T, U> = {
-  filterFormInstance: FormInstance;
+  editForm: FormInstance;
   isEditFormOpen: boolean;
   setIsEditFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
+  // onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
+  onUpdate: () => Promise<void>;
   record: U;
 };
 
