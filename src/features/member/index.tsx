@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { memo, useState } from 'react';
 import { Button, Form, Space, Table, TablePaginationConfig, message } from 'antd';
-import { getUsersByConditions, updateUserById } from '@/api';
+import { getUsersByConditions, updateUserById } from '@/service';
 import { PageTitle } from '@/components/UI';
 import type { IColumn, TTableParams } from '@/types';
 import type { TRecord } from './types';

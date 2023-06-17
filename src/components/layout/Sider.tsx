@@ -1,6 +1,7 @@
 import { Layout, Menu } from 'antd';
 import { TeamOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import logo from '@/assets/logo_white.svg';
 
 type SiderProps = {
   isCollapsed: boolean;
@@ -36,9 +37,8 @@ function Sider({ isCollapsed }: SiderProps) {
       className="overflow-y-auto overflow-x-hidden whitespace-nowrap text-white"
     >
       <div className="flex h-16 items-center gap-4 pl-6 ">
-        <img src="/src/assets/logo.svg" className="h-8 w-8" />
-        <a href="/dashboard/user/list" className="text-white">
-          HookLoop
+        <a href="/" className="text-white">
+          <img src={logo} className="h-10 w-40" />
         </a>
       </div>
       <div className="flex h-16 items-center gap-4 pl-6">
