@@ -10,7 +10,7 @@ import FilterForm from './FilterForm';
 import { PageTitle } from '@/components/UI';
 import axios from 'axios';
 
-function ListMember() {
+function ListUser() {
   const [filterFormInstance] = Form.useForm();
   const [isSearching, setIsSearching] = useState(false);
   const [tableParams, setTableParams] = useState<TTableParams>({
@@ -177,4 +177,4 @@ function ListMember() {
   );
 }
 
-export default memo(ListMember);
+export default memo(ListUser);

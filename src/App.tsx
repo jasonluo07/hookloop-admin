@@ -8,7 +8,7 @@ import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
-import { ListMember } from '@/components';
+import { ListUser } from '@/components';
 
 type ProtectedRouteProps = {
   children: React.ReactNode;
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       <DashboardPage />
       // </ProtectedRoute>
     ),
-    children: [{ path: '', element: <ListMember /> }],
+    children: [{ path: '', element: <ListUser /> }],
   },
   {
     path: '/admin/login',

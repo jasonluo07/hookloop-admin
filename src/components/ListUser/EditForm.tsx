@@ -31,7 +31,7 @@ function EditForm(props: EditFormProps<TFilterData, TRecord>) {
       className="w-[600px]"
     >
       <Form
-        name="editMember"
+        name="editUser"
         form={form}
         layout="horizontal"
         labelCol={{ span: 6 }}

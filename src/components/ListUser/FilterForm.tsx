@@ -18,7 +18,7 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
 
   return (
     <Form
-      name="filterMember"
+      name="filterUser"
       form={filterFormInstance}
       layout="inline"
       labelCol={{ span: 6 }}
