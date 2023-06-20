@@ -1,5 +1,5 @@
 import { Layout, Menu } from 'antd';
-import { TeamOutlined } from '@ant-design/icons';
+import { TeamOutlined, ShopOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 type SiderProps = {
@@ -15,11 +15,58 @@ function Sider({ isCollapsed }: SiderProps) {
       children: [
         {
           label: (
-            <Link to={'user/list'} className="text-inherit">
+            <Link to="user/list" className="text-inherit">
               User List
             </Link>
           ),
           key: 'user/list',
+        },
+        {
+          label: (
+            <Link to="a/list" className="text-inherit">
+              A List
+            </Link>
+          ),
+          key: 'a/list',
+        },
+        {
+          label: (
+            <Link to="b/list" className="text-inherit">
+              B List
+            </Link>
+          ),
+          key: 'b/list',
+        },
+        {
+          label: (
+            <Link to="c/list" className="text-inherit">
+              C List
+            </Link>
+          ),
+          key: 'c/list',
+        },
+      ],
+    },
+    {
+      key: 'sub2',
+      icon: <ShopOutlined />,
+      label: 'Team Management',
+      children: [
+        {
+          label: (
+            <Link to="d/list" className="text-inherit">
+              D List
+            </Link>
+          ),
+          key: 'd/list',
+        },
+        {
+          label: (
+            <Link to="e/list" className="text-inherit">
+              E List
+            </Link>
+          ),
+          key: 'e/list',
         },
       ],
     },
