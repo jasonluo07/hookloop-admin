@@ -7,6 +7,8 @@ import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
 import { ListMember } from '@/features';
 import { verifyUserToken } from '@/service';
+import UserTradeInfoPage from './pages/user/TradeInfoPage';
+import UserDetailPage from './pages/user/UserDetailPage';
 
 type ProtectedRouteProps = {
   children: React.ReactNode;
@@ -34,11 +36,15 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <ProtectedRoute>
-        <DashboardPage />
-      </ProtectedRoute>
+      // <ProtectedRoute>
+      <DashboardPage />
+      // </ProtectedRoute>
     ),
-    children: [{ path: '', element: <ListMember /> }],
+    children: [
+      { path: 'user/:id', element: <UserDetailPage /> },
+      { path: 'user/list', element: <ListMember /> },
+      { path: 'user/tradeInfo', element: <UserTradeInfoPage /> },
+    ],
   },
   {
     path: '/login',

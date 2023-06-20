@@ -1,11 +1,11 @@
 export enum EPlanType {
-  'Free',
-  'Standard',
-  'Premium',
+  Free = 'Free',
+  Standard = 'Standard',
+  Premium = 'Premium',
 }
 
 export const PLAN_TYPE: Array<{
-  value: number;
+  value: EPlanType;
   label: string;
 }> = [
   {

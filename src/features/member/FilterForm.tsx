@@ -2,7 +2,7 @@ import { Button, Col, DatePicker, Form, Input, Row, Select, Space } from 'antd';
 import type { FilterFormProps } from '@/types';
 import { DateRangePresets } from '@/utils/constants';
 import type { TFilterData } from './types';
-import { IS_ARCHIVED_TYPE } from './constants';
+import { IS_ARCHIVED_TYPE, PLAN_TYPE } from './constants';
 
 const { RangePicker } = DatePicker;
 
@@ -24,11 +24,11 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
       className="mb-4 rounded bg-white pt-2 shadow-sm"
     >
       <Row wrap gutter={[0, 12]} className="w-full px-4 py-1">
-        {/* <Col span={6}>
+        <Col span={6}>
           <Form.Item name="planType" label="Plan Type">
             <Select options={PLAN_TYPE} allowClear />
           </Form.Item>
-        </Col> */}
+        </Col>
         <Col span={6}>
           <Form.Item name="username" label="Username">
             <Input allowClear />
@@ -39,9 +39,7 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
             <Input allowClear />
           </Form.Item>
         </Col>
-      </Row>
-      <Row wrap gutter={[0, 12]} className="w-full px-4 py-1">
-        <Col span={14}>
+        <Col span={6}>
           <Form.Item name="isArchived" label="Archived">
             <Select options={IS_ARCHIVED_TYPE} allowClear />
           </Form.Item>
@@ -61,7 +59,7 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
           </Form.Item>
         </Col>
       </Row>
-      <Space className="w-full bg-gray-100 px-4 py-1">
+      <Space className="w-full bg-white px-4 py-1">
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit

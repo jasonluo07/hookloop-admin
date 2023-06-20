@@ -1,12 +1,13 @@
 import dayjs from 'dayjs';
 import { memo, useState } from 'react';
-import { Button, Form, Space, Table, TablePaginationConfig, message } from 'antd';
+import { Button, Form, Space, Table, TablePaginationConfig, Typography, message } from 'antd';
 import { getUsersByConditions, updateUserById } from '@/service';
 import { PageTitle } from '@/components/UI';
-import type { IColumn, TTableParams } from '@/types';
+import type { IColumn, IPlan, TTableParams } from '@/types';
 import type { TRecord } from './types';
 import EditForm from './EditForm';
 import FilterForm from './FilterForm';
+import { Route, Router } from 'react-router-dom';
 
 function ListMember() {
   const [filterForm] = Form.useForm();
@@ -25,41 +26,40 @@ function ListMember() {
 
   const columns: IColumn<TRecord>[] = [
     {
-      title: 'ID',
-      dataIndex: '_id',
-    },
-    {
       title: 'Username',
-      dataIndex: 'username',
+      width: '250',
+      render: (row: TRecord) => (
+        <Typography.Link underline href={`/user/${row.id}`}>
+          {row.username}
+        </Typography.Link>
+      ),
     },
     {
       title: 'Email',
       dataIndex: 'email',
+      width: '250',
     },
     {
       title: 'Register Date',
       dataIndex: 'createdAt',
+      width: '250',
       render: (createdAt: string) => <span>{dayjs(createdAt).format('YYYY-MM-DD HH:mm')}</span>,
     },
-    // {
-    //   title: 'Plan',
-    //   dataIndex: 'plan',
-    //   render: (plan: number) => {
-    //     switch (plan) {
-    //       case 0:
-    //         return <span className="text-yellow-700">Plan A</span>;
-    //       case 1:
-    //         return <span className="text-red-700">Plan B</span>;
-    //       case 2:
-    //         return <span className="text-green-700">Plan C</span>;
-    //       default:
-    //         return <span>Unknown</span>;
-    //     }
-    //   },
-    // },
+    {
+      title: 'Plan',
+      dataIndex: 'currentPlan',
+      width: '100',
+      render: (currentPlan: IPlan) => {
+        if (currentPlan?.name) {
+          return <span>{currentPlan?.name}</span>;
+        }
+        return <span>--</span>;
+      },
+    },
     {
       title: 'IsArchived',
       dataIndex: 'isArchived',
+      width: '100',
       render: (isArchived: boolean) => {
         if (isArchived) {
           return <span className="text-red-500">true</span>;
@@ -71,6 +71,7 @@ function ListMember() {
     {
       title: 'Actions',
       dataIndex: 'Id',
+      width: '50',
       render: (_, record) => (
         <Space direction="horizontal">
           <Button
@@ -89,7 +90,8 @@ function ListMember() {
 
   const handleSearch = async () => {
     setIsLoading(true);
-    const { username, email, isArchived: formIsArchived, registerDateRange } = filterForm.getFieldsValue();
+    console.log(filterForm.getFieldsValue());
+    const { username, email, isArchived: formIsArchived, registerDateRange, planType } = filterForm.getFieldsValue();
     const isArchived = formIsArchived === undefined ? undefined : formIsArchived === 1 ? true : false;
 
     try {
@@ -99,10 +101,10 @@ function ListMember() {
         isArchived,
         startDate: registerDateRange?.[0],
         endDate: registerDateRange?.[1],
+        planType,
       });
 
-      const { users } = usersData.data;
-      setDataSource(users);
+      setDataSource(usersData.data);
     } catch (error) {
       message.error((error as Error)?.message || 'Something went wrong. Please try again later.');
     } finally {
@@ -114,7 +116,7 @@ function ListMember() {
     setIsLoading(true);
     const { username, isArchived: formIsArchived } = editForm.getFieldsValue();
     const isArchived = formIsArchived === undefined ? undefined : formIsArchived === 1 ? true : false;
-    const id = record._id;
+    const id = record.id;
 
     try {
       const { data: resData } = await updateUserById(id, { username, isArchived });
@@ -144,7 +146,7 @@ function ListMember() {
       <Table
         dataSource={dataSource}
         columns={columns}
-        rowKey={(record: TRecord) => record._id}
+        rowKey={(record: TRecord) => record.id}
         pagination={tableParams.pagination}
         onChange={handleTableChange}
         loading={isLoading}

@@ -22,6 +22,14 @@ function Sider({ isCollapsed }: SiderProps) {
           ),
           key: 'user/list',
         },
+        {
+          label: (
+            <Link to={'user/tradeInfo'} className="text-inherit">
+              User TradeInfo
+            </Link>
+          ),
+          key: 'user/tradeInfo',
+        },
       ],
     },
   ];
@@ -40,9 +48,6 @@ function Sider({ isCollapsed }: SiderProps) {
         <a href="/" className="text-white">
           <img src={logo} className="h-10 w-40" />
         </a>
-      </div>
-      <div className="flex h-16 items-center gap-4 pl-6">
-        <div className="flex flex-col gap-1">{/* <div>Alice</div> */}</div>
       </div>
       <Menu theme="dark" mode="inline" defaultOpenKeys={['sub1']} items={menuItems} />
     </Layout.Sider>

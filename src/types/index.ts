@@ -1,7 +1,7 @@
 import type { FormInstance, TablePaginationConfig } from 'antd';
 
 export interface IUser {
-  _id: string;
+  id: string;
   email: string;
   username: string;
   password: string;
@@ -10,11 +10,12 @@ export interface IUser {
   lastActiveTime: Date;
   createdAt: Date;
   updatedAt: Date;
+  currentPlan?: IPlan;
 }
 
 export interface IColumn<T> {
   title: string;
-  dataIndex: string;
+  dataIndex?: string;
   width?: string;
   sorter?: boolean;
   render?: (text: any, record: T) => JSX.Element;
@@ -46,3 +47,18 @@ export type EditFormProps<T, U> = {
 export type TTableParams = {
   pagination: TablePaginationConfig;
 };
+
+export interface IPlan {
+  name: 'Free' | 'Standard' | 'Premium';
+  price: number;
+  endAt: Date;
+  userId: string;
+  status: 'UN-PAID' | 'NONE' | 'PAY-SUCCESS' | 'PAY-FAIL';
+  createdAt: string;
+  updatedAt: string;
+  merchantOrderNo: string;
+  paymentType: string;
+  payBankCode?: string;
+  payerAccount5Code?: string;
+  payTime: string;
+}
