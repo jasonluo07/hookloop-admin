@@ -7,10 +7,12 @@ import type { IColumn, IPlan, TTableParams } from '@/types';
 import type { TRecord } from './types';
 import EditForm from './EditForm';
 import FilterForm from './FilterForm';
+import { useNavigate } from 'react-router-dom';
 
 function ListMember() {
   const [filterForm] = Form.useForm();
   const [editForm] = Form.useForm();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [tableParams, setTableParams] = useState<TTableParams>({
     pagination: {
@@ -28,7 +30,7 @@ function ListMember() {
       title: 'Username',
       width: '250',
       render: (row: TRecord) => (
-        <Typography.Link underline href={`/user/${row.id}/${row.username}`}>
+        <Typography.Link underline onClick={() => navigate(`/user/${row.id}/${row.username}`)}>
           {row.username}
         </Typography.Link>
       ),

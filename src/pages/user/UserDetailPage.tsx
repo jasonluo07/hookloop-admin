@@ -69,7 +69,6 @@ export default function UserDetailPage() {
 
     try {
       const res = await getPlansByUserId(userId);
-      console.log('🚀 ~ file: UserDetailPage.tsx:67 ~ getPlanByUserId ~ res:', res.data.data.plans);
 
       filterForm.setFieldsValue({
         userId: userId,
