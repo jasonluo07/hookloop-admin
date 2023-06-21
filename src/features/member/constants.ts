@@ -40,3 +40,31 @@ export const IS_ARCHIVED_TYPE: Array<{
     label: 'Archived',
   },
 ];
+
+export enum EStatus {
+  NONE = 'NONE',
+  UN_PAID = 'UN-PAID',
+  PAY_SUCCESS = 'PAY-SUCCESS',
+  PAY_FAIL = 'PAY-FAIL',
+}
+export const Status_TYPE: Array<{
+  value: EStatus;
+  label: string;
+}> = [
+  {
+    value: EStatus.NONE,
+    label: EStatus.NONE,
+  },
+  {
+    value: EStatus.UN_PAID,
+    label: EStatus.UN_PAID,
+  },
+  {
+    value: EStatus.PAY_SUCCESS,
+    label: EStatus.PAY_SUCCESS,
+  },
+  {
+    value: EStatus.PAY_FAIL,
+    label: EStatus.PAY_FAIL,
+  },
+];

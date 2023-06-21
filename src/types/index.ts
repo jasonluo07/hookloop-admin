@@ -62,3 +62,19 @@ export interface IPlan {
   payerAccount5Code?: string;
   payTime: string;
 }
+
+export enum PayStatus {
+  'UN-PAID',
+  'NONE',
+  'PAY-SUCCESS',
+  'PAY-FAIL',
+}
+export interface IPlansConditions {
+  userId: string;
+  username: string;
+  email: string;
+  planType?: 'Free' | 'Standard' | 'Premium';
+  payTime?: string;
+  status?: PayStatus;
+  merchantOrderNo?: string;
+}

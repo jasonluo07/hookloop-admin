@@ -36,14 +36,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      // <ProtectedRoute>
-      <DashboardPage />
-      // </ProtectedRoute>
+      <ProtectedRoute>
+        <DashboardPage />
+      </ProtectedRoute>
     ),
     children: [
-      { path: 'user/:id', element: <UserDetailPage /> },
-      { path: 'user/list', element: <ListMember /> },
-      { path: 'user/tradeInfo', element: <UserTradeInfoPage /> },
+      { path: '/user/list', element: <ListMember /> },
+      { path: '/user/tradeInfo', element: <UserTradeInfoPage /> },
+      { path: '/user/:id/:name', element: <UserDetailPage /> },
     ],
   },
   {

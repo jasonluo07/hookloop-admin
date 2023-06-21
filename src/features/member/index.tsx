@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Button, Form, Space, Table, TablePaginationConfig, Typography, message } from 'antd';
 import { getUsersByConditions, updateUserById } from '@/service';
 import { PageTitle } from '@/components/UI';
@@ -7,7 +7,6 @@ import type { IColumn, IPlan, TTableParams } from '@/types';
 import type { TRecord } from './types';
 import EditForm from './EditForm';
 import FilterForm from './FilterForm';
-import { Route, Router } from 'react-router-dom';
 
 function ListMember() {
   const [filterForm] = Form.useForm();
@@ -29,7 +28,7 @@ function ListMember() {
       title: 'Username',
       width: '250',
       render: (row: TRecord) => (
-        <Typography.Link underline href={`/user/${row.id}`}>
+        <Typography.Link underline href={`/user/${row.id}/${row.username}`}>
           {row.username}
         </Typography.Link>
       ),
@@ -46,7 +45,7 @@ function ListMember() {
       render: (createdAt: string) => <span>{dayjs(createdAt).format('YYYY-MM-DD HH:mm')}</span>,
     },
     {
-      title: 'Plan',
+      title: 'Current Plan',
       dataIndex: 'currentPlan',
       width: '100',
       render: (currentPlan: IPlan) => {
@@ -139,6 +138,10 @@ function ListMember() {
     });
   };
 
+  useEffect(() => {
+    handleSearch();
+  }, []);
+
   return (
     <>
       <PageTitle name="User List" />
@@ -165,4 +168,5 @@ function ListMember() {
   );
 }
 
-export default memo(ListMember);
+// export default memo(ListMember);
+export default ListMember;

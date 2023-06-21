@@ -2,10 +2,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 const rootUrl = import.meta.env.DEV ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD;
 
-export interface IApiResponse {
+export interface IApiResponse<T = any> {
   status: 'success' | 'fail' | 'error';
   message: string;
-  data: any;
+  data: T;
 }
 
 // const token = Cookies.get("hookloop-token");

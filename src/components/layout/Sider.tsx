@@ -41,15 +41,15 @@ function Sider({ isCollapsed }: SiderProps) {
       collapsed={isCollapsed}
       width={250}
       collapsedWidth={72}
-      theme="dark"
+      theme="light"
       className="overflow-y-auto overflow-x-hidden whitespace-nowrap text-white"
     >
-      <div className="flex h-16 items-center gap-4 pl-6 ">
+      <div className="flex items-center gap-4 pl-6 ">
         <a href="/" className="text-white">
           <img src={logo} className="h-10 w-40" />
         </a>
       </div>
-      <Menu theme="dark" mode="inline" defaultOpenKeys={['sub1']} items={menuItems} />
+      <Menu theme="light" mode="inline" defaultOpenKeys={['sub1']} items={menuItems} className="flex-0-0" />
     </Layout.Sider>
   );
 }
