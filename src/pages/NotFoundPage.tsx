@@ -5,7 +5,7 @@ function NotFoundPage() {
   const navigate = useNavigate();
 
   const handleBackHome = () => {
-    navigate('/dashboard/user/list');
+    navigate('/user/list');
   };
 
   return (

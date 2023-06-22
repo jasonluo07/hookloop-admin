@@ -45,7 +45,7 @@ function Sider({ isCollapsed }: SiderProps) {
       className="overflow-y-auto overflow-x-hidden whitespace-nowrap text-white"
     >
       <div className="flex items-center gap-4 pl-6 ">
-        <a href="/" className="text-white">
+        <a href="user/list" className="text-white">
           <img src={logo} className="h-10 w-40" />
         </a>
       </div>
