@@ -33,7 +33,7 @@ function Header() {
   return (
     <Layout.Header className="flex justify-between bg-[#001529] p-0">
       <div className="flex items-center gap-4 pl-6 ">
-        <a href="user/list" className="text-white">
+        <a onClick={() => navigate('/user/list')} className="text-white">
           <img src={logo} className="h-10 w-40" />
         </a>
       </div>

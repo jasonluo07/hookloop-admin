@@ -1,6 +1,6 @@
 import { Layout, Menu } from 'antd';
 import { TeamOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo_white.svg';
 
 type SiderProps = {
@@ -8,6 +8,8 @@ type SiderProps = {
 };
 
 function Sider({ isCollapsed }: SiderProps) {
+  const navigate = useNavigate();
+
   const menuItems = [
     {
       key: 'sub1',
@@ -45,7 +47,7 @@ function Sider({ isCollapsed }: SiderProps) {
       className="overflow-y-auto overflow-x-hidden whitespace-nowrap text-white"
     >
       <div className="flex items-center gap-4 pl-6 ">
-        <a href="user/list" className="text-white">
+        <a onClick={() => navigate('/user/list')} className="text-white">
           <img src={logo} className="h-10 w-40" />
         </a>
       </div>
