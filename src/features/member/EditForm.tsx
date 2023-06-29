@@ -1,7 +1,7 @@
 import { Form, Input, Modal, Select, Typography } from 'antd';
 import type { EditFormProps } from '@/types';
 import type { TFilterData, TRecord } from './types';
-import { IS_ARCHIVED_TYPE } from './constants';
+import { IS_ARCHIVED_TYPE } from '../constants';
 
 const { Title } = Typography;
 

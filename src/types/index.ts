@@ -29,7 +29,6 @@ export interface IOption<T = number> {
 
 export type FilterFormProps<T> = {
   filterForm: FormInstance;
-  // onSearch: (filterData: T, isNewSearch: boolean) => Promise<void>;
   onSearch: () => Promise<void>;
   onChange?: (filterData: T) => void;
   filterOptions?: any;
@@ -52,7 +51,6 @@ export interface IPlan {
   name: 'Free' | 'Standard' | 'Premium';
   price: number;
   endAt: Date;
-  userId: string;
   status: 'UN-PAID' | 'NONE' | 'PAY-SUCCESS' | 'PAY-FAIL';
   createdAt: string;
   updatedAt: string;
@@ -61,6 +59,11 @@ export interface IPlan {
   payBankCode?: string;
   payerAccount5Code?: string;
   payTime: string;
+  userId: {
+    _id: string;
+    email: string;
+    username: string;
+  };
 }
 
 export enum PayStatus {
@@ -70,9 +73,9 @@ export enum PayStatus {
   'PAY-FAIL',
 }
 export interface IPlansConditions {
-  userId: string;
-  username: string;
-  email: string;
+  userId?: string;
+  username?: string;
+  email?: string;
   planType?: 'Free' | 'Standard' | 'Premium';
   payTime?: string;
   status?: PayStatus;

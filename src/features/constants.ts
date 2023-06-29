@@ -47,7 +47,7 @@ export enum EStatus {
   PAY_SUCCESS = 'PAY-SUCCESS',
   PAY_FAIL = 'PAY-FAIL',
 }
-export const Status_TYPE: Array<{
+export const STATUS_TYPE: Array<{
   value: EStatus;
   label: string;
 }> = [
@@ -68,3 +68,10 @@ export const Status_TYPE: Array<{
     label: EStatus.PAY_FAIL,
   },
 ];
+
+export const planStatusTagClass = {
+  [EStatus.NONE]: 'volcano',
+  [EStatus.UN_PAID]: 'purple',
+  [EStatus.PAY_SUCCESS]: 'green',
+  [EStatus.PAY_FAIL]: 'red',
+};

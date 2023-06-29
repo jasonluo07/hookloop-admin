@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { AuthContext } from '@/contexts';
 import type { TAuthState, TAuthAction } from '@/contexts/AuthContext';
 import { DashboardPage, LoginPage, NotFoundPage } from '@/pages';
-import { ListMember } from '@/features';
+import { ListMember, PlanOverview } from '@/features';
 import { verifyUserToken } from '@/service';
 import UserTradeInfoPage from './pages/user/TradeInfoPage';
 import UserDetailPage from './pages/user/UserDetailPage';
@@ -44,6 +44,7 @@ const router = createBrowserRouter([
       { path: '/user/list', element: <ListMember /> },
       { path: '/user/tradeInfo', element: <UserTradeInfoPage /> },
       { path: '/user/:id/:name', element: <UserDetailPage /> },
+      { path: '/plan', element: <PlanOverview /> },
     ],
   },
   {

@@ -2,7 +2,7 @@ import { Button, Col, DatePicker, Form, Input, Row, Select, Space } from 'antd';
 import type { FilterFormProps } from '@/types';
 import { DateRangePresets } from '@/utils/constants';
 import type { TFilterData } from './types';
-import { IS_ARCHIVED_TYPE, PLAN_TYPE } from './constants';
+import { IS_ARCHIVED_TYPE, PLAN_TYPE } from '../constants';
 
 const { RangePicker } = DatePicker;
 
