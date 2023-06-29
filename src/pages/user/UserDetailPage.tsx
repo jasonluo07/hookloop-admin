@@ -83,6 +83,10 @@ export default function UserDetailPage() {
     }
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const handleSearch = async (userId: string) => {
     setIsLoading(true);
     const { username, email, planType, payTime, status, merchantOrderNo } = filterForm.getFieldsValue();
@@ -117,7 +121,7 @@ export default function UserDetailPage() {
   return (
     <>
       <Space>
-        <SelectOutlined className="cursor-pointer text-base hover:text-green-500" onClick={() => navigate('/user/list')} />
+        <SelectOutlined className="cursor-pointer text-base hover:text-green-500" onClick={handleGoBack} />
         <PageTitle name={`User Trade Records : ${param.name}`} />
       </Space>
       <FilterForm filterForm={filterForm} onSearch={() => handleSearch(param.id || '')} />

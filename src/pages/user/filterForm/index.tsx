@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { Button, Col, DatePicker, Form, Input, Row, Select, Space } from 'antd';
 import type { FilterFormProps } from '@/types';
-import { PLAN_TYPE, Status_TYPE } from '@/features/member/constants';
+import { PLAN_TYPE, STATUS_TYPE } from '@/features/constants';
 import { TFilterData } from '@/features/member/types';
 import { useParams } from 'react-router-dom';
 
@@ -55,7 +55,7 @@ function FilterForm(props: FilterFormProps<TFilterData>) {
         </Col>
         <Col span={6}>
           <Form.Item name="status" label="Status">
-            <Select options={Status_TYPE} allowClear />
+            <Select options={STATUS_TYPE} allowClear />
           </Form.Item>
         </Col>
       </Row>

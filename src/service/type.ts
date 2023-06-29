@@ -1,4 +1,4 @@
-import { EPlanType } from '@/features/member/constants';
+import { EPlanType } from '@/features/constants';
 
 export interface IUsersDataByConditionArgs {
   email?: string;
